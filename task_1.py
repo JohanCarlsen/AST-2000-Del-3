@@ -46,19 +46,31 @@ def orbit(planet_number):
         a = a_new
         v_norm = np.linalg.norm(v[i+1])
     r_mean = np.mean(r_norm_new)
-    print(f'Planet {planet_number} has a mean temperature of {int(temp(r_mean, R_p))} Kelvin')
+    print(f'Planet {planet_number} has a mean distance from the star at {r_mean:.3f} AU, and has a mean temperature of {int(temp(r_mean, R_p))} Kelvin')
     return r_norm_new
 
 # for i in range(8):
 #     orbit(i)
 
+def hab_zone(T_p):
+    return T_star**2*star_radius / (2*T_p**2)
+
+lower_limit = 260
+upper_limit = 390
+
+# print(f'The boundires for the habitable zone ranges from {hab_zone(upper_limit):.3f} AU to {hab_zone(lower_limit):.3f} AU')
+# print(f'With plus/minus 15 K, the boundries become {hab_zone(upper_limit+15):.3f} AU and {hab_zone(lower_limit-15):.2f} AU')
+
 '''
-Planet 0 has a mean temperature of 349 Kelvin
-Planet 1 has a mean temperature of 284 Kelvin
-Planet 2 has a mean temperature of 170 Kelvin
-Planet 3 has a mean temperature of 128 Kelvin
-Planet 4 has a mean temperature of 103 Kelvin
-Planet 5 has a mean temperature of 150 Kelvin
-Planet 6 has a mean temperature of 249 Kelvin
-Planet 7 has a mean temperature of 217 Kelvin
+Planet 0 has a mean distance from the star at 1.849 AU, and has a mean temperature of 349 Kelvin
+Planet 1 has a mean distance from the star at 2.799 AU, and has a mean temperature of 284 Kelvin
+Planet 2 has a mean distance from the star at 7.760 AU, and has a mean temperature of 170 Kelvin
+Planet 3 has a mean distance from the star at 13.609 AU, and has a mean temperature of 128 Kelvin
+Planet 4 has a mean distance from the star at 21.133 AU, and has a mean temperature of 103 Kelvin
+Planet 5 has a mean distance from the star at 10.010 AU, and has a mean temperature of 150 Kelvin
+Planet 6 has a mean distance from the star at 3.635 AU, and has a mean temperature of 249 Kelvin
+Planet 7 has a mean distance from the star at 4.776 AU, and has a mean temperature of 217 Kelvin
+
+The boundires for the habitable zone ranges from 1.484 AU to 3.339 AU
+With plus/minus 15 K, the boundries become 1.376 AU and 3.76 AU
 '''
